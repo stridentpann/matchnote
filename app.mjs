@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { start } from './lib/server.mjs';
 import { run, validate } from './core.mjs';
+import { product } from './project.mjs';
 export * from './core.mjs';
 export const spec = { ...{
   "slug": "matchnote",
@@ -50,7 +51,7 @@ export const spec = { ...{
   },
   "changed": "Conflicting batch IDs are rejected, conversions are explicit, manual split allocations are validated, and received = allocated + unallocated is enforced.",
   "limits": "No OCR, accounting, tax judgment, inventory writes or persistent multi-user ledger. Editing rules creates a new immutable task.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "inputSchema": {
     "type": "object",
     "required": [
@@ -69,6 +70,6 @@ export const spec = { ...{
       }
     }
   }
-}, run, validate };
+}, run, validate, product };
 if (process.argv[1] === fileURLToPath(import.meta.url)) start(spec);
 
